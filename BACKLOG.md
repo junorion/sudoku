@@ -24,7 +24,7 @@
 | 0-9 | 끝난 판에서 되돌리기·다시하기가 동작해 기록과 화면이 어긋났다. 다 쓴 숫자 키가 눌렸다 | **완료** | `S.done` 이면 무시하고, 9개를 다 채운 숫자 키는 `disabled` |
 | 0-10 | **`[hidden]` 이 듣지 않았다** — `.btn { display: flex }` 처럼 display 를 지정한 클래스가 `[hidden]` 의 UA 기본값을 이겨서, `el.hidden = true` 로 숨긴 것이 그대로 보였다 (코인이 없을 때 힌트 "적용" 버튼이 남아 있었다) | **완료** | `[hidden] { display: none !important; }` 하나로 못박고 개별 규칙 3개를 지웠다. `hidden` 을 쓰는 곳이 17군데다 |
 | 0-11 | 코인이 0일 때 힌트 버튼이 `disabled` 라 클릭이 일어나지 않았고, 준비해 둔 "코인이 모자랍니다" 안내가 **뜰 수 없었다** | **완료** | `aria-disabled` 로 바꿔 흐리게만 두고, 누르면 이유를 설명한다 |
-| 0-6 | **Android 16(targetSdk 36)에서 뒤로 가기가 오버레이를 닫지 못하고 앱을 바로 닫는다.** 예측형 뒤로 가기가 기본이 되어 `onBackPressed()` 가 불리지 않는다. API 33+ 에서 `OnBackInvokedCallback` 을 등록해야 한다 (app_development 템플릿 `MainActivity.askWebThenClose` 참고). 실기기 Android 버전 확인 필요 | 대기 | 2026-10-28 별자리 앱 리뷰에서 발견 |
+| 0-12 | **Android 16(targetSdk 36)에서 뒤로 가기가 오버레이를 닫지 못하고 앱을 바로 닫는다.** 예측형 뒤로 가기가 기본이 되어 `onBackPressed()` 가 불리지 않는다. API 33+ 에서 `OnBackInvokedCallback` 을 등록해야 한다 (app_development 템플릿 `MainActivity.askWebThenClose` 참고). 실기기 Android 버전 확인 필요 | 대기 | 2026-10-28 별자리 앱 리뷰에서 발견 |
 
 ---
 
