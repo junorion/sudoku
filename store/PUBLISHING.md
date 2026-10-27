@@ -66,7 +66,7 @@
 - 앱 아이콘 → `store/icon-512.png`
 - 그래픽 이미지 → `store/feature-graphic.png` (영어 등록정보에는 `feature-graphic-en.png`)
 - 휴대전화 스크린샷 → `store/screenshot-1.png` ~ `screenshot-7.png` (영어는 `screenshot-en-*.png`)
-- 개인정보처리방침 URL → `https://junorion.github.io/app_development/sudoku/privacy.html`
+- 개인정보처리방침 URL → `https://junorion.github.io/sudoku/privacy.html`
 
 영어 등록정보도 함께 넣는다: **기본 스토어 등록정보 → 언어 추가 → English (United
 States)** → `LISTING.md` 의 영어 문안과 `screenshot-en-*.png`, `feature-graphic-en.png`.

@@ -13,7 +13,7 @@ Play Console 에 그대로 붙여 넣을 수 있게 정리했다. 이 디렉토�
 | 앱 또는 게임 | **게임** |
 | 카테고리 | 퍼즐 |
 | 유료/무료 | 무료 (인앱 결제 없음, 광고 없음) |
-| 개인정보처리방침 URL | `https://junorion.github.io/app_development/sudoku/privacy.html` |
+| 개인정보처리방침 URL | `https://junorion.github.io/sudoku/privacy.html` |
 | 연락처 이메일 | *(직접 입력 — 개인 계정은 스토어에 공개 표시된다)* |
 
 ## 짧은 설명 (80자 이내)
