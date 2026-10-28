@@ -10,6 +10,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.window.OnBackInvokedDispatcher;
 
 /**
  * sudoku/index.html 을 그대로 담아 띄우는 얇은 WebView 껍데기.
@@ -67,6 +68,13 @@ public class MainActivity extends Activity {
 
         setContentView(web);
         web.loadUrl("file:///android_asset/index.html");
+
+        // targetSdk 36(Android 16)부터는 예측형 뒤로 가기가 기본이라 onBackPressed() 가 불리지 않는다.
+        // 콜백을 등록해야 뒤로 가기가 오버레이를 먼저 닫는다. API 32 이하는 아래 onBackPressed() 가 받는다.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            getOnBackInvokedDispatcher().registerOnBackInvokedCallback(
+                    OnBackInvokedDispatcher.PRIORITY_DEFAULT, this::closeOverlayOrFinish);
+        }
     }
 
     /** 앱 자산 밖으로는 나가지 않는다. */
@@ -103,12 +111,18 @@ public class MainActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        // 진행 중인 게임을 실수로 날리지 않게, 열려 있는 오버레이가 있으면 그것부터 닫는다.
+        closeOverlayOrFinish();
+    }
+
+    /** 진행 중인 게임을 실수로 날리지 않게, 열려 있는 오버레이가 있으면 그것부터 닫는다. */
+    private void closeOverlayOrFinish() {
+        if (web == null) return;
         web.evaluateJavascript(
             "(function(){ if (typeof overlayOpen !== 'undefined' && overlayOpen) {"
           + "  closeOverlay(); if (S && !S.done) startTimer(); return true; } return false; })();",
             value -> {
-                if (!"true".equals(value)) finish();
+                // 뒤로 가기를 빠르게 두 번 누르면 두 번째 답이 이미 닫히는 중에 올 수 있다.
+                if (!"true".equals(value) && !isFinishing()) finish();
             });
     }
 

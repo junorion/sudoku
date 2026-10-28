@@ -81,8 +81,8 @@ States)** → `LISTING.md` 의 영어 문안과 `screenshot-en-*.png`, `feature-
 1. **Play 앱 서명** 사용 여부를 물으면 **사용**을 선택한다 (권장 · 사실상 필수).
    우리가 만든 키는 이때부터 "업로드 키"가 된다.
 2. `sudoku/android/app/build/outputs/bundle/release/app-release.aab` 를 업로드한다.
-   지금 만들어 둔 것은 **versionCode 19 / versionName 2.8** 이다.
-3. 출시명은 `2.8 (19)` 로 두고, 출시 노트를 적는다:
+   지금 만들어 둔 것은 **versionCode 20 / versionName 2.8.1** 이다.
+3. 출시명은 `2.8.1 (20)` 로 두고, 출시 노트를 적는다:
    ```
    <ko-KR>
    첫 공개입니다. 광고도 인터넷 연결도 없는 스도쿠입니다.
